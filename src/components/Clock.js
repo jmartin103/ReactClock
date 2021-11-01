@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 const Clock = () => {
-  const [time, setTime] = useState(new Date().toLocaleString());
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
-    setInterval(() => tick(), 1000);
+    setInterval(() => handleTimeChange(), 1000);
   });
 
-  const tick = () => {
-    setTime(new Date().toLocaleString());
+  const handleTimeChange = () => {
+    setTime(new Date().toLocaleTimeString());
   };
 
   return (
-    <div>
-      <p>The current time is {time}.</p>
+    <div className="Clock">
+      <h3>
+        The current time is <strong>{time}</strong>.
+      </h3>
     </div>
   );
 };
